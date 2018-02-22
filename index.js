@@ -1,6 +1,3 @@
-// alert("Loading")
-// ---------------------------------
-//  Create and run function to clean up data
 function cleanUpData(){
     for(i=0;i<dataSet.length; i++){
         // set variables
