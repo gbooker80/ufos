@@ -1,4 +1,4 @@
-var isoCountries = {
+var countries = {
     'AF' : 'Afghanistan',
     'AX' : 'Aland Islands',
     'AL' : 'Albania',

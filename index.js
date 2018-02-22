@@ -5,7 +5,7 @@ function cleanUpData(){
         // Clean up add full text of country
         var countryAbbrLower = current.country;
         var countryAbbrUpper = countryAbbrLower.toUpperCase();
-        var countryFullName = isoCountries[countryAbbrUpper];
+        var countryFullName = countries[countryAbbrUpper];
         data[i].countryName = countryFullName;
         data[i].country = countryAbbrUpper;
 
