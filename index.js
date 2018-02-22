@@ -2,7 +2,7 @@ function cleanUpData(){
     for(i=0;i<data.length; i++){
         var current = data[i];
         
-        // Clean up add full text of country
+        // Clean up/add full text of country
         var countryAbbrLower = current.country;
         var countryAbbrUpper = countryAbbrLower.toUpperCase();
         var countryFullName = countries[countryAbbrUpper];
@@ -126,7 +126,7 @@ function createOptions(uniqueList, formObject){
 createOptions(unique_countries, $countryDropDown);
 createOptions(unique_shapes, $shapeSelect);
 
-// ------------------------------------ End of Create Options Section ----------------------------//
+// ------------------------------------ Create Options Section End----------------------------//
 
 
 
@@ -138,7 +138,6 @@ createOptions(unique_shapes, $shapeSelect);
 
 // make column Headers
 var $table = document.querySelector("table")
-// all objects  have 7 entries
 // var columnHeaders = ["Date", "City", "State", "Country", "Shape", "Duration of Sighting", "Observer's Statement"]
 function makeColumnHeaders(){
     var columnHeaders = ["Date", "City", "State", "Country", "Shape", "Duration of Sighting", "Observer's Statement"]
@@ -153,15 +152,11 @@ function makeColumnHeaders(){
     }
 }
 
-
 makeColumnHeaders()
 var $tbody = $table.createTBody()
-// End of column Headers
-
-
+// End column Headers
 
 // Render Table
-
 var filteredData = data;
 
 var maxEndNum = filteredData.length;
@@ -207,7 +202,7 @@ renderTable(startNum, endNum)
 
 // Filter 
 
-// search inputs 
+// Search inputs 
 var $dateInput = document.querySelector("#date");
 var $cityInput = document.querySelector("#city");
 var $stateInput = document.querySelector("#state");
@@ -217,7 +212,7 @@ var $shapeInput = document.querySelector("#shape");
 // Search button
 var $searchbtn = document.querySelector("button");
 
-// buttons for pagination
+// Pagination buttons
 $nextBtn = document.querySelector("#next")
 $previousBtn = document.querySelector("#previous")
 
