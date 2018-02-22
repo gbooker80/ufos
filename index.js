@@ -1,6 +1,5 @@
 function cleanUpData(){
     for(i=0;i<dataSet.length; i++){
-        // set variables
         var current = dataSet[i];
         
         // clean up abbrs and add full text of country
@@ -55,7 +54,7 @@ function cleanUpData(){
     dataSet[i].state = stateAbbrUpper;
     dataSet[i].stateName = stateFullName;
     
-    //  clean shape name
+    //  Clean shape name
     var shapeName = current.shape
     var shapeUpper = shapeName.slice(0,1).toUpperCase() + shapeName.slice(1);
     dataSet[i].shape = shapeUpper;
@@ -316,8 +315,6 @@ $nextBtn.innerHTML = "<a href=''>Next 50 Results</a>"
 
 // Pagination Handling
 
-
-// $previousBtn = document.querySelector()
 var pageNum = 0;
 
 $nextBtn.addEventListener("click", function(event){
