@@ -1,13 +1,13 @@
 function cleanUpData(){
-    for(i=0;i<dataSet.length; i++){
-        var current = dataSet[i];
+    for(i=0;i<data.length; i++){
+        var current = data[i];
         
-        // clean up abbrs and add full text of country
+        // Clean up add full text of country
         var countryAbbrLower = current.country;
         var countryAbbrUpper = countryAbbrLower.toUpperCase();
         var countryFullName = isoCountries[countryAbbrUpper];
-        dataSet[i].countryName = countryFullName;
-        dataSet[i].country = countryAbbrUpper;
+        data[i].countryName = countryFullName;
+        data[i].country = countryAbbrUpper;
 
         // attempt to fix () messiness
         var cityLower = current.city;
@@ -16,7 +16,6 @@ function cleanUpData(){
         while (firstParan > -1){
             if (closeParan > -1){
                 cityLower = cityLower.slice(0, firstParan) + cityLower.slice(closeParan + 1)
-                // console.log(cityLower)
                 firstParan = cityLower.indexOf("(")
                 closeParan = cityLower.indexOf(")")
             } else {
@@ -33,32 +32,32 @@ function cleanUpData(){
        }
         var cityUpper = cityUpperArray.join(" ")
         // console.log(cityUpper)
-        dataSet[i].city = cityUpper.trim()
-    //    console.log(dataSet[i])
+        data[i].city = cityUpper.trim()
+    //    console.log(data[i])
 
     //  Capitalize State Abbr and Add Full State name 
     var stateAbbrLower = current.state;
     var stateAbbrUpper = stateAbbrLower.toUpperCase();
-    if ((stateAbbr[stateAbbrUpper]) && (dataSet[i].country == "US")){
+    if ((stateAbbr[stateAbbrUpper]) && (data[i].country == "US")){
         var stateFullName = stateAbbr[stateAbbrUpper];
         }
-    else if ((canadian_prov[stateAbbrUpper] && (dataSet[i].country == "CA"))){
+    else if ((canadian_prov[stateAbbrUpper] && (data[i].country == "CA"))){
         var stateFullName = canadian_prov[stateAbbrUpper];          
         }
-    else if ((australian_prov[stateAbbrUpper] && (dataSet[i].country == "AU"))){
+    else if ((australian_prov[stateAbbrUpper] && (data[i].country == "AU"))){
         var stateFullName = australian_prov[stateAbbrUpper];          
         }
     else {
         var stateFullName = "N/A"
     }
-    dataSet[i].state = stateAbbrUpper;
-    dataSet[i].stateName = stateFullName;
+    data[i].state = stateAbbrUpper;
+    data[i].stateName = stateFullName;
     
     //  Clean shape name
     var shapeName = current.shape
     var shapeUpper = shapeName.slice(0,1).toUpperCase() + shapeName.slice(1);
-    dataSet[i].shape = shapeUpper;
-    // console.log(dataSet[i])
+    data[i].shape = shapeUpper;
+    // console.log(data[i])
 
     //  fix dates to be MM/DD/YYYY
     var dateRaw = current.datetime;
@@ -70,10 +69,7 @@ function cleanUpData(){
         }
     }
     var newDate = dateArray.join("/");
-    dataSet[i].datetime = newDate;
-    
-
-    // console.log(dataSet[i]);
+    data[i].datetime = newDate;        
 }
 }
  ;
@@ -90,7 +86,7 @@ cleanUpData();
 // function to create clean lists for choices
 function getListForDropdown(thing){
     // console.log(thing);
-    var results = dataSet.map(a => a[thing]);
+    var results = data.map(a => a[thing]);
     // console.log(results);
 
     var unique_results = [];
@@ -167,7 +163,7 @@ var $tbody = $table.createTBody()
 
 // Render Table
 
-var filteredData = dataSet;
+var filteredData = data;
 
 var maxEndNum = filteredData.length;
 
@@ -263,7 +259,7 @@ console.log("Shape: " + searchShape)
 
 
 // create filtered data set
-filteredData = dataSet.filter(function(record) {
+filteredData = data.filter(function(record) {
     var dateMatch = record.datetime.substring(0, searchDate.length)
 
     var cityMatch = record.city.replace(/[^0-9a-z]/gi, '').substring(0, searchCity.length).toLowerCase().trim();
