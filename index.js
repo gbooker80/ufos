@@ -205,7 +205,7 @@ function renderTable(numRecordsStart, numRecordsStop){
 renderTable(startNum, endNum)
 
 
-// Filter Functionality
+// Filter 
 
 // search inputs 
 var $dateInput = document.querySelector("#date");
@@ -233,7 +233,7 @@ function handleSearch(event){
 
 event.preventDefault();
 
-// create vriables for inputs - tranforming when needed and conditionally
+// Create variables for inputs
 var searchDate = $dateInput.value.toString();
 if (searchDate){
     var dateArray = searchDate.split("-");
@@ -257,16 +257,16 @@ if (searchShape == "all"){
 console.log("Shape: " + searchShape)
 
 
-// create filtered data set
+// Filtered data set creation
 filteredData = data.filter(function(record) {
     var dateMatch = record.datetime.substring(0, searchDate.length)
 
     var cityMatch = record.city.replace(/[^0-9a-z]/gi, '').substring(0, searchCity.length).toLowerCase().trim();
-    var cityFlag = cityMatch.indexOf(searchCity) ///allows for partial match
+    var cityFlag = cityMatch.indexOf(searchCity) ///Partial match functionality
 
     var stateMatchFull = record.stateName.replace(/[^0-9a-z]/gi, '').substring(0, searchState.length).toLowerCase().trim();
     var stateMatchAbbr = record.state.replace(/[^0-9a-z]/gi, '').substring(0, searchState.length).toLowerCase().trim();
-    var stateFullFlag = stateMatchFull.indexOf(searchState) /// allows for partial match
+    var stateFullFlag = stateMatchFull.indexOf(searchState) /// Partial match functionality
 
     var countryMatch = record.countryName.substring(0, searchCountry.length).toLowerCase().trim();
 
@@ -308,7 +308,7 @@ $nextBtn.className = 'next';
 $nextBtn.innerHTML = "<a href=''>Next 50 Results</a>"
 }
 
-// Pagination Handling
+// Pagination
 
 var pageNum = 0;
 
