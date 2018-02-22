@@ -1,4 +1,4 @@
-var stateAbbr = {
+var us_state = {
     "AL": "Alabama",
     "AK": "Alaska",
     "AS": "American Samoa",

@@ -38,14 +38,14 @@ function cleanUpData(){
     //  Capitalize State Abbr and Add Full State name 
     var stateAbbrLower = current.state;
     var stateAbbrUpper = stateAbbrLower.toUpperCase();
-    if ((stateAbbr[stateAbbrUpper]) && (data[i].country == "US")){
-        var stateFullName = stateAbbr[stateAbbrUpper];
+    if ((us_state[stateAbbrUpper]) && (data[i].country == "US")){
+        var stateFullName = us_state[stateAbbrUpper];
         }
-    else if ((canadian_prov[stateAbbrUpper] && (data[i].country == "CA"))){
-        var stateFullName = canadian_prov[stateAbbrUpper];          
+    else if ((ca_state[stateAbbrUpper] && (data[i].country == "CA"))){
+        var stateFullName = ca_state[stateAbbrUpper];          
         }
-    else if ((australian_prov[stateAbbrUpper] && (data[i].country == "AU"))){
-        var stateFullName = australian_prov[stateAbbrUpper];          
+    else if ((au_state[stateAbbrUpper] && (data[i].country == "AU"))){
+        var stateFullName = au_state[stateAbbrUpper];          
         }
     else {
         var stateFullName = "N/A"
@@ -57,7 +57,6 @@ function cleanUpData(){
     var shapeName = current.shape
     var shapeUpper = shapeName.slice(0,1).toUpperCase() + shapeName.slice(1);
     data[i].shape = shapeUpper;
-    // console.log(data[i])
 
     //  fix dates to be MM/DD/YYYY
     var dateRaw = current.datetime;

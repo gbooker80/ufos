@@ -1,4 +1,4 @@
-var canadian_prov = {
+var ca_state = {
     "AB": "Alberta",
     "BC": "British Columbia",
     "MB": "Manitoba",

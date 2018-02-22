@@ -1,4 +1,4 @@
-var australian_prov = 
+var au_state = 
     {
       "ACT": "Australian Capital Territory",
       "NSW": "New South Wales",
